@@ -24,7 +24,7 @@ jobs:
 
       - name: Coverage with JaCoCo
         if: always()
-        run: mvn jacoco:report AutoApi/pom.xml
+        run: mvn jacoco:report -f AutoApi/pom.xml
       - name: Publish coverage report
         if: always()
         uses: actions/upload-artifact@v3
