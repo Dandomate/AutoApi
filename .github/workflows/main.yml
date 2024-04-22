@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: auto-coverage
-          path: AutoApi/target/site/jacoco
+          path: target/site/jacoco
       - name: Restore Maven cache
         uses: skjolber/maven-cache-github-action@v1
         with:
