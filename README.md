@@ -1,0 +1,1 @@
+Autó adat lekérdezés
