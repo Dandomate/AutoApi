@@ -43,6 +43,44 @@
         <th>Web service</th>
         <th>Authorization</th>
     </tr>
+
+    <tr>
+        <td>GET</td>
+        <td><a href="/cars">cars</a></td>
+        <td>Autók listája</td>
+        <td>engedélyezett</td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td><a href="/cars/1">cars/{id}</a></td>
+        <td>Id által kiválasztott autó adatai</td>
+        <td>engedélyezett</td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td><a href="/cars/rendszam/JSN901">cars/{rendszam}</a></td>
+        <td>Rendszám által kiválasztott autó adatai</td>
+        <td>engedélyezett</td>
+    </tr>
+    <tr class="back-auth">
+        <td>POST</td>
+        <td>cars/add</td>
+        <td>Új autó felvétele</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>PATCH</td>
+        <td>/cars/update/renszam/{id}</td>
+        <td>Autó rendszámának módosítása</td>
+        <td>jelszóval védendő</td>
+    </tr>
+    <tr class="back-auth">
+        <td>DELETE</td>
+        <td>/cars/delete/{id}</td>
+        <td>Kiválasztott autó törlése</td>
+        <td>jelszóval védendő</td>
+    </tr>
+
 </table>
 </body>
 </html>
