@@ -58,6 +58,16 @@ class CarServiceTest {
     }
 
     @Test
+    void testGetCars2() {
+        // Arrange
+        int id = 1;
+        when(carsRepository.findById(id)).thenReturn(Optional.empty());
+
+        // Act and Assert
+        assertThrows(ResponseStatusException.class, () -> carService.getCars(id));
+    }
+
+    @Test
     public void testGetCarsList() {
         // Arrange
         Cars car1 = new Cars();

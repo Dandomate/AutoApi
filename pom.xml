@@ -101,8 +101,7 @@
 				<version>0.8.7</version>
 				<configuration>
 					<excludes>
-						<exclude>hu.autoapi.domain.*</exclude>
-						<exclude>hu.autoapi.CarsApplication.*</exclude>
+						<exclude>**/AutoApiApplication.class</exclude>
 					</excludes>
 				</configuration>
 				<executions>
