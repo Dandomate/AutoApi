@@ -17,14 +17,14 @@ jobs:
         with:
           step: restore
       - name: Compile with Maven
-        run: mvn AutoApi/pom.xml compile
+        run: mvn compile
 
       - name: Test with Maven
-        run: mvn test AutoApi/pom.xml
+        run: mvn test 
 
       - name: Coverage with JaCoCo
         if: always()
-        run: mvn jacoco:report AutoApi/pom.xml
+        run: mvn jacoco:report
       - name: Publish coverage report
         if: always()
         uses: actions/upload-artifact@v3
