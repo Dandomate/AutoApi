@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "5d5eabb5-a561-4280-ba87-7a9cb62cae36",
+		"name": "Api Test with Postman",
+		"description": "Ebben a mappában találhatóak a kérések tesztelése a AutoApi-hoz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21170731"
+	},
+	"item": [
+		{
+			"name": "Cars Test",
+			"item": [
+				{
+					"name": "/cars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8015/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8015",
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cars/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8015/cars/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8015",
+							"path": [
+								"cars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cars/rendszam/{rendszam}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8015/cars/rendszam/JSN901",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8015",
+							"path": [
+								"cars",
+								"rendszam",
+								"JSN901"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cars/add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"rendszam\": \"ABC123\",\r\n        \"marka\": \"Proba\",\r\n        \"model\": \"Auto\",\r\n        \"tipusjel\": \"auto\",\r\n        \"evjarat\": 2000,\r\n        \"uzemanyag\": \"benzin\",\r\n        \"hengerurtartalom\": 1200,\r\n        \"teljesitmeny\": 45\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8015/cars/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8015",
+							"path": [
+								"cars",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cars/update/rendszam/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rendszam\": \"EFG456\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8015/cars/update/rendszam/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8015",
+							"path": [
+								"cars",
+								"update",
+								"rendszam",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cars/delete/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8015/cars/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8015",
+							"path": [
+								"cars",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A mappában találhatóak a postman kérések a AutoAPI-ra.  \nGET /cars - Kiírja az összes autot.  \nGET /cars/{id} - Kiír egy adott autót id szerint.  \nGET /cars/rendszam/{rendszam} - Kiír egy adott autót rendszám szerint.  \nPOST /classrooms/add - Hozzáad az autók közé egy új autót.  \nPATCH /cars/update/rendszam/{id} - Frissiti az autó rendszámát id szerint.  \nDELETE /cars/delete/{id} - Törli az adott autót ID szerint."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
