@@ -17,36 +17,36 @@ public class Cars {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Size(min = 1, max = 10, message = "Az ajtoszám min 1 max 10 karakter")
+    @Size(min = 6, max = 10, message = "Az rendszám min. 6 max 10 karakter")
     @Column(unique = true)
     private String rendszam;
 
-    @Size(min = 1, max = 10, message = "Az ajtoszám min 1 max 10 karakter")
+    @Size(min = 1, max = 100, message = "Az márka min 1 max 100 karakter")
     @Column(unique = true)
     private String marka;
 
-    @Size(min = 1, max = 10, message = "Az ajtoszám min 1 max 10 karakter")
+    @Size(min = 1, max = 100, message = "Az model min 1 max 100 karakter")
     @Column(unique = true)
     private String model;
 
-    @Size(min = 1, max = 10, message = "Az ajtoszám min 1 max 10 karakter")
+    @Size(min = 1, max = 100, message = "Az típusjel min 1 max 100 karakter")
     @Column(unique = true)
     private String tipusjel;
 
-    @Min(value = 1900, message = "Érték 1 nél kisebb")
-    @Max(value = 2024, message = "Érték 100 nál nagyobb")
+    @Min(value = 1900, message = "Az érték 1900-nál kisebb")
+    @Max(value = 2024, message = "Az érték 2024-nél nagyobb")
     private int evjarat;
 
-    @Size(min = 1, max = 10, message = "Az ajtoszám min 1 max 10 karakter")
+    @Size(min = 3, max = 50, message = "Az üzemanyag elnevezése min 3 max 50 karakter")
     @Column(unique = true)
     private String uzemanyag;
 
-    @Min(value = 500, message = "Érték 1 nél kisebb")
-    @Max(value = 20000, message = "Érték 100 nál nagyobb")
+    @Min(value = 500, message = "Érték 500-nál kisebb")
+    @Max(value = 20000, message = "Érték 20000-nél nagyobb")
     private int hengerurtartalom;
 
-    @Min(value = 10, message = "Érték 1 nél kisebb")
-    @Max(value = 1000, message = "Érték 100 nál nagyobb")
+    @Min(value = 10, message = "Érték 10 nél kisebb")
+    @Max(value = 1000, message = "Érték 1000 nál nagyobb")
     private int teljesitmeny;
 
     public Cars(int id, String rendszam, String marka, String model, String tipusjel,
