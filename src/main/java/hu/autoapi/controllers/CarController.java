@@ -2,7 +2,7 @@ package hu.autoapi.controllers;
 
 import java.util.List;
 
-import hu.autoapi.domain.Cars;
+import hu.autoapi.domain.Car;
 import hu.autoapi.dto.NewCarRequest;
 import hu.autoapi.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,35 +23,35 @@ public class CarController {
     private CarService service;
 
     @GetMapping("/cars")
-    public List<Cars> getCars() {
+    public List<Car> getCars() {
         return service.getCarsList();
     }
 
     @GetMapping("/cars/{id}")
-    public Cars getCars(@PathVariable("id") int id) {
-        return service.getCars(id);
+    public Car getCar(@PathVariable("id") int id) {
+        return service.getCar(id);
     }
 
     @GetMapping("/cars/rendszam/{rendszam}")
-    public Cars getCarsRendszam(@PathVariable("rendszam") String rendszam) {
-        return service.getCarsRendszam(rendszam);
+    public Car getCarByRendszam(@PathVariable("rendszam") String rendszam) {
+        return service.getCarByRendszam(rendszam);
     }
 
     @PatchMapping("/cars/update/rendszam/{id}")
-    public Cars updateCars(@PathVariable("id") int id, @RequestBody Cars cars) {
+    public Car updateCar(@PathVariable("id") int id, @RequestBody Car cars) {
         String rendszam = cars.getRendszam();
         return service.updateRendszam(id, rendszam);
     }
 
     @DeleteMapping("/cars/delete/{id}")
-    public ResponseEntity<String> deleteCars(@PathVariable("id") int id) {
-        service.deleteCars(id);
+    public ResponseEntity<String> deleteCar(@PathVariable("id") int id) {
+        service.deleteCar(id);
         return ResponseEntity.ok("Car delete successfully.");
     }
 
     @PostMapping("/cars/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cars addCars(@RequestBody NewCarRequest newCarRequest) {
+    public Car addCars(@RequestBody NewCarRequest newCarRequest) {
         return service.addCars(newCarRequest);
     }
 }

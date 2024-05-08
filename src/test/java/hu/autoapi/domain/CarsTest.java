@@ -19,7 +19,7 @@ class CarsTest {
         int teljesitmeny = 120;
 
         // Act
-        Cars cars = new Cars(id, rendszam, marka, model, tipusjel, evjarat, uzemanyag, hengerurtartalom, teljesitmeny);
+        Car cars = new Car(id, rendszam, marka, model, tipusjel, evjarat, uzemanyag, hengerurtartalom, teljesitmeny);
 
         // Assert
         assertEquals(id, cars.getId());
@@ -35,7 +35,7 @@ class CarsTest {
     @Test
     public void testCarsSetters() {
         // Arrange
-        Cars cars = new Cars();
+        Car cars = new Car();
 
         // Act
         cars.setId(1);
@@ -63,7 +63,7 @@ class CarsTest {
     @Test
     public void testCarsGetters() {
         // Arrange
-        Cars cars = new Cars();
+        Car cars = new Car();
         cars.setId(1);
         cars.setRendszam("ABC123");
         cars.setMarka("Toyota");

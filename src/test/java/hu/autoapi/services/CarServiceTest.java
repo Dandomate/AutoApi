@@ -1,6 +1,6 @@
 package hu.autoapi.services;
 
-import hu.autoapi.domain.Cars;
+import hu.autoapi.domain.Car;
 import hu.autoapi.dto.NewCarRequest;
 import hu.autoapi.repositories.CarsRepository;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ class CarServiceTest {
     public void testGetCars() {
         // Arrange
         int id = 1;
-        Cars expectedCars = new Cars();
+        Car expectedCars = new Car();
         expectedCars.setRendszam("ABC123");
         expectedCars.setMarka("Toyota");
         expectedCars.setModel("Corolla");
@@ -43,7 +43,7 @@ class CarServiceTest {
         when(carsRepository.findById(id)).thenReturn(Optional.of(expectedCars));
 
         // Act
-        Cars actualCars = carService.getCars(id);
+        Car actualCars = carService.getCar(id);
 
         // Assert
         assertEquals(expectedCars, actualCars);
@@ -64,13 +64,13 @@ class CarServiceTest {
         when(carsRepository.findById(id)).thenReturn(Optional.empty());
 
         // Act and Assert
-        assertThrows(ResponseStatusException.class, () -> carService.getCars(id));
+        assertThrows(ResponseStatusException.class, () -> carService.getCar(id));
     }
 
     @Test
     public void testGetCarsList() {
         // Arrange
-        Cars car1 = new Cars();
+        Car car1 = new Car();
         car1.setRendszam("ABC123");
         car1.setMarka("Toyota");
         car1.setModel("Corolla");
@@ -80,7 +80,7 @@ class CarServiceTest {
         car1.setHengerurtartalom(1600);
         car1.setTeljesitmeny(120);
 
-        Cars car2 = new Cars();
+        Car car2 = new Car();
         car2.setRendszam("XYZ789");
         car2.setMarka("Ford");
         car2.setModel("Focus");
@@ -90,13 +90,13 @@ class CarServiceTest {
         car2.setHengerurtartalom(2000);
         car2.setTeljesitmeny(150);
 
-        List<Cars> expectedCarsList = Arrays.asList(car1, car2);
+        List<Car> expectedCarsList = Arrays.asList(car1, car2);
 
         // Defining behavior for repository mock
         when(carsRepository.nativeFindCars()).thenReturn(expectedCarsList);
 
         // Act
-        List<Cars> actualCarsList = carService.getCarsList();
+        List<Car> actualCarsList = carService.getCarsList();
 
         // Assert
         assertEquals(expectedCarsList.size(), actualCarsList.size());
@@ -108,7 +108,7 @@ class CarServiceTest {
     public void testGetCarsRendszam() {
         // Arrange
         String rendszam = "ABC123";
-        Cars expectedCars = new Cars();
+        Car expectedCars = new Car();
         expectedCars.setRendszam(rendszam);
         expectedCars.setMarka("Toyota");
         expectedCars.setModel("Corolla");
@@ -121,7 +121,7 @@ class CarServiceTest {
         when(carsRepository.findCarsRendszam(rendszam)).thenReturn(Optional.of(expectedCars));
 
         // Act
-        Cars actualCars = carService.getCarsRendszam(rendszam);
+        Car actualCars = carService.getCarByRendszam(rendszam);
 
         // Assert
         assertEquals(expectedCars, actualCars);
@@ -134,19 +134,19 @@ class CarServiceTest {
         when(carsRepository.findCarsRendszam(rendszam)).thenReturn(Optional.empty());
 
         // Act & Assert
-        assertThrows(ResponseStatusException.class, () -> carService.getCarsRendszam(rendszam));
+        assertThrows(ResponseStatusException.class, () -> carService.getCarByRendszam(rendszam));
     }
 
     @Test
-    public void testDeleteCars() {
+    public void testDeleteCar() {
         // Arrange
         int id = 1;
-        Cars car = new Cars();
+        Car car = new Car();
         car.setId(id);
         when(carsRepository.findById(id)).thenReturn(Optional.of(car));
 
         // Act
-        carService.deleteCars(id);
+        carService.deleteCar(id);
 
         // Assert
         verify(carsRepository, times(1)).deleteById(id);
@@ -159,21 +159,21 @@ class CarServiceTest {
         when(carsRepository.findById(id)).thenReturn(Optional.empty());
 
         // Act & Assert
-        assertThrows(ResponseStatusException.class, () -> carService.deleteCars(id));
+        assertThrows(ResponseStatusException.class, () -> carService.deleteCar(id));
     }
     @Test
     public void testUpdateRendszam() {
         // Arrange
         int id = 1;
         String newRendszam = "ABC123";
-        Cars existingCars = new Cars();
+        Car existingCars = new Car();
         existingCars.setId(id);
         existingCars.setRendszam("XYZ789");
         when(carsRepository.findById(id)).thenReturn(Optional.of(existingCars));
         when(carsRepository.save(existingCars)).thenReturn(existingCars);
 
         // Act
-        Cars updatedCars = carService.updateRendszam(id, newRendszam);
+        Car updatedCars = carService.updateRendszam(id, newRendszam);
 
         // Assert
         assertEquals(newRendszam, updatedCars.getRendszam());
@@ -203,7 +203,7 @@ class CarServiceTest {
         newCarRequest.setHengerurtartalom(1600);
         newCarRequest.setTeljesitmeny(120);
 
-        Cars cars = new Cars();
+        Car cars = new Car();
         cars.setRendszam("ABC123");
         cars.setMarka("Toyota");
         cars.setModel("Corolla");

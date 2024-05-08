@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "auto")
-public class Cars {
+public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -49,8 +49,8 @@ public class Cars {
     @Max(value = 1000, message = "Érték 1000 nál nagyobb")
     private int teljesitmeny;
 
-    public Cars(int id, String rendszam, String marka, String model, String tipusjel,
-                int evjarat, String uzemanyag, int hengerurtartalom, int teljesitmeny) {
+    public Car(int id, String rendszam, String marka, String model, String tipusjel,
+               int evjarat, String uzemanyag, int hengerurtartalom, int teljesitmeny) {
         this.id = id;
         this.rendszam = rendszam;
         this.marka = marka;
@@ -62,7 +62,7 @@ public class Cars {
         this.teljesitmeny = teljesitmeny;
     }
 
-    public Cars() {
+    public Car() {
     }
 
     public int getId() {

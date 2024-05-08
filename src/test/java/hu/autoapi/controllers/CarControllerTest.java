@@ -1,6 +1,6 @@
 package hu.autoapi.controllers;
 
-import hu.autoapi.domain.Cars;
+import hu.autoapi.domain.Car;
 import hu.autoapi.dto.NewCarRequest;
 import hu.autoapi.services.CarService;
 import org.junit.jupiter.api.Test;
@@ -29,14 +29,14 @@ class CarControllerTest {
     @Test
     public void testGetCars() {
         // Arrange
-        List<Cars> expectedCarsList = Arrays.asList(
-                new Cars(),
-                new Cars()
+        List<Car> expectedCarsList = Arrays.asList(
+                new Car(),
+                new Car()
         );
         when(carService.getCarsList()).thenReturn(expectedCarsList);
 
         // Act
-        List<Cars> actualCarsList = carController.getCars();
+        List<Car> actualCarsList = carController.getCars();
 
         // Assert
         assertEquals(expectedCarsList, actualCarsList);
@@ -48,10 +48,10 @@ class CarControllerTest {
         int id = 1;
 
         // Act
-        carController.getCars(id);
+        carController.getCar(id);
 
         // Assert
-        verify(carService, times(1)).getCars(id);
+        verify(carService, times(1)).getCar(id);
     }
 
     @Test
@@ -60,10 +60,10 @@ class CarControllerTest {
         String rendszam = "JSN901";
 
         // Act
-        carController.getCarsRendszam(rendszam);
+        carController.getCarByRendszam(rendszam);
 
         // Assert
-        verify(carService, times(1)).getCarsRendszam(rendszam);
+        verify(carService, times(1)).getCarByRendszam(rendszam);
     }
 
     @Test
@@ -83,11 +83,11 @@ class CarControllerTest {
         // Arrange
         int id = 1;
         String rendszam = "XYZ789";
-        Cars cars = new Cars();
+        Car cars = new Car();
         cars.setRendszam(rendszam);
 
         // Act
-        carController.updateCars(id, cars);
+        carController.updateCar(id, cars);
 
         // Assert
         verify(carService, times(1)).updateRendszam(eq(id), eq(rendszam));
@@ -99,10 +99,10 @@ class CarControllerTest {
         int id = 1;
 
         // Act
-        ResponseEntity<String> response = carController.deleteCars(id);
+        ResponseEntity<String> response = carController.deleteCar(id);
 
         // Assert
-        verify(carService, times(1)).deleteCars(eq(id));
+        verify(carService, times(1)).deleteCar(eq(id));
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Car delete successfully.", response.getBody());
     }

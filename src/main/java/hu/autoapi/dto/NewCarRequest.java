@@ -1,6 +1,6 @@
 package hu.autoapi.dto;
 
-import hu.autoapi.domain.Cars;
+import hu.autoapi.domain.Car;
 
 public class NewCarRequest {
     private String rendszam;
@@ -83,8 +83,8 @@ public class NewCarRequest {
         this.teljesitmeny = teljesitmeny;
     }
 
-    public Cars toCar() {
-        Cars cars = new Cars();
+    public Car toCar() {
+        Car cars = new Car();
         cars.setRendszam(this.rendszam);
         cars.setMarka(this.marka);
         cars.setModel(this.model);

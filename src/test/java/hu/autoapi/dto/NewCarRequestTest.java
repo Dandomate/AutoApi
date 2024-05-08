@@ -1,6 +1,6 @@
 package hu.autoapi.dto;
 
-import hu.autoapi.domain.Cars;
+import hu.autoapi.domain.Car;
 import org.junit.jupiter.api.Test;
 
 
@@ -23,7 +23,7 @@ class NewCarRequestTest {
         request.setTeljesitmeny(120);
 
         // Act
-        Cars car = request.toCar();
+        Car car = request.toCar();
 
         // Assert
         assertEquals("ABC123", car.getRendszam());
