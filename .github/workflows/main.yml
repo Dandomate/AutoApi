@@ -3,7 +3,7 @@ name: autoapi
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   DOCKER_REGISTRY: ghcr.io
