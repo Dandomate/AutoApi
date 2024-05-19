@@ -1,5 +1,4 @@
-name: AutoApi
-
+name: autoapi
 
 on:
   push:
