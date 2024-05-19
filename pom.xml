@@ -159,5 +159,11 @@
 			<url>https://maven.pkg.github.com/Dandomate/AutoApi</url>
 		</repository>
 	</distributionManagement>
-
+	<repositories>
+		<repository>
+			<id>github</id>
+			<name>GitHub Dandomate Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/Dandomate/AutoApi</url>
+		</repository>
+	</repositories>
 </project>
