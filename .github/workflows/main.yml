@@ -26,15 +26,16 @@ jobs:
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
-          MAVEN_USERNAME: ${{ github.actor }}
-          MAVEN_PASSWORD: ${{ secrets.AUTOAPI_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.PROBA }}
       - name: Log in to the Container registry
         uses: docker/login-action@v2
         with:
           registry: ${{ env.DOCKER_REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.AUTOAPI_SECRET }}
+          password: ${{ secrets.PROBA }}
       - name: Build and push Docker image
         run: |
           docker build . -t ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:0.0.2-SNAPSHOT
           docker push ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:0.0.2-SNAPSHOT
+
+ 
