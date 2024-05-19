@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>hu</groupId>
-	<artifactId>AutoApi</artifactId>
+	<artifactId>autoapi</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<name>AutoApi</name>
 	<description>AutoApi</description>
@@ -51,6 +51,14 @@
 			<artifactId>annotations</artifactId>
 			<version>21.0.0</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
 	</dependencies>
 
