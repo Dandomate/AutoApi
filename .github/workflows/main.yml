@@ -22,7 +22,7 @@ jobs:
           java-version: '17'
       - name: Compile AutoApiApplication
         run: mvn compile
-      - name: Test AutoApiyyApplication
+      - name: Test AutoApiApplication
         run: mvn test
       - name: Publish package
         run: mvn --batch-mode deploy
