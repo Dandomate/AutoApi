@@ -23,6 +23,11 @@ jobs:
         run: mvn compile
       - name: Test AutoApiApplication
         run: mvn test
+      - name: Debugging Maven settings
+        run: cat $HOME/.m2/settings.xml
+
+      - name: Print environment variables
+        run: printenv | sort
       - name: Publish package
         run: mvn --batch-mode deploy --file pom.xml
         env:
