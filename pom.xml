@@ -156,7 +156,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/Dandomate/autoApi</url>
+			<url>https://maven.pkg.github.com/Dandomate/AutoApi</url>
 		</repository>
 	</distributionManagement>
 
