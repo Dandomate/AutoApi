@@ -1,4 +1,4 @@
-name: 2024 Programozasi kornyezetek BPI1223
+name: AutoApi
 
 
 on:
@@ -22,7 +22,7 @@ jobs:
           java-version: '17'
       - name: Compile AutoApiApplication
         run: mvn compile
-      - name: Test AutoApiApplication
+      - name: Test AutoApiyyApplication
         run: mvn test
       - name: Publish package
         run: mvn --batch-mode deploy
