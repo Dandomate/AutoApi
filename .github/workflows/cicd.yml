@@ -34,7 +34,4 @@ jobs:
           registry: ${{ env.DOCKER_REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.AUTOAPI_SECRET_DANDOMATE }}
-      - name: Build and push Docker image
-        run: |
-          docker build . -t ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:0.0.2-SNAPSHOT
-          docker push ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:0.0.2-SNAPSHOT
+ 
