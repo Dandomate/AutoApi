@@ -11,8 +11,8 @@
 	<groupId>hu</groupId>
 	<artifactId>AutoApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CarsApi</name>
-	<description>Cars</description>
+	<name>AutoApi</name>
+	<description>AutoApi</description>
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
@@ -144,5 +144,12 @@
 			</plugin>
 		</plugins>
 	</reporting>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/Dandomate/AutoApi</url>
+		</repository>
+	</distributionManagement>
 
 </project>
