@@ -24,7 +24,7 @@ jobs:
       - name: Test AutoApiApplication
         run: mvn test
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: mvn --batch-mode deploy --file pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.AUTOAPI_SECRET }}
       - name: Log in to the Container registry
